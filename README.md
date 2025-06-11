@@ -1,2 +1,1 @@
-# me
-the portfolio website dream is finally happening
+the portfolio website dream is finally here
