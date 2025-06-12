@@ -11,7 +11,25 @@ Currently, two official plugins are available:
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
+
 to deploy this site (prakhar-gupta-swe.web.app:
 ```shell
 firebase deploy --only hosting:prakhar-swe
+```
+
+Example Firestore call for later:
+```typescript
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from './firebaseConfig'; // Adjust the path
+
+// Example function to fetch data
+const fetchContent = async () => {
+const querySnapshot = await getDocs(collection(db, "yourContentCollection"));
+querySnapshot.forEach((doc) => {
+console.log(`${doc.id} => ${doc.data()}`);
+// Process your content here
+});
+}
+
+// You would call fetchContent within your React component, maybe using useEffect
 ```
